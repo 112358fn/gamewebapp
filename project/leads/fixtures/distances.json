@@ -1,0 +1,74 @@
+[
+    {
+        "model": "leads.distance",
+        "pk": 1,
+        "fields": {
+            "meters": 30,
+            "team": 1,
+            "created_at": "2018-02-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.distance",
+        "pk": 2,
+        "fields": {
+            "meters": 35,
+            "team": 1,
+            "created_at": "2018-01-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.distance",
+        "pk": 3,
+        "fields": {
+            "meters": 40,
+            "team": 2,
+            "created_at": "2018-01-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.distance",
+        "pk": 4,
+        "fields": {
+            "meters": 45,
+            "team": 2,
+            "created_at": "2018-01-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.distance",
+        "pk": 5,
+        "fields": {
+            "meters": 50,
+            "team": 3,
+            "created_at": "2018-01-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.distance",
+        "pk": 6,
+        "fields": {
+            "meters": 55,
+            "team": 3,
+            "created_at": "2018-01-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.distance",
+        "pk": 7,
+        "fields": {
+            "meters": 60,
+            "team": 4,
+            "created_at": "2018-01-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.distance",
+        "pk": 8,
+        "fields": {
+            "meters": 65,
+            "team": 4,
+            "created_at": "2018-01-14 00:00:00"
+        }
+    }
+]

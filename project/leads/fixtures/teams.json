@@ -1,0 +1,38 @@
+[
+    {
+        "model": "leads.team",
+        "pk": 1,
+        "fields": {
+            "name": "Team A",
+            "responsible": "John Doe",
+            "created_at": "2018-02-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.team",
+        "pk": 2,
+        "fields": {
+            "name": "Team B",
+            "responsible": "Tom",
+            "created_at": "2018-01-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.team",
+        "pk": 3,
+        "fields": {
+            "name": "Team C",
+            "responsible": "Jerry",
+            "created_at": "2018-01-14 00:00:00"
+        }
+    },
+    {
+        "model": "leads.team",
+        "pk": 4,
+        "fields": {
+            "name": "Team D",
+            "responsible": "Donald",
+            "created_at": "2018-01-14 00:00:00"
+        }
+    }
+]
