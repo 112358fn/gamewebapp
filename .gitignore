@@ -59,3 +59,14 @@ typings/
 
 # next.js build output
 .next
+.DS_Store
+.babelrc
+.vscode
+*.lock
+.coverage
+__pycache__
+migrations
+static
+package-lock.json
+db.sqlite3
+htmlcov
