@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.db.models import Max, Count
 from leads.models import Team, Distance
-from leads.serializers import TeamSerializer, DistanceSerializer
+from leads.serializers import TeamSerializer, TeamActvSerializer, DistanceSerializer
 from rest_framework import generics
 
 class TeamListAPI(generics.ListAPIView):
@@ -9,7 +10,7 @@ class TeamListAPI(generics.ListAPIView):
 
 class TeamRetriveAPI(generics.RetrieveUpdateAPIView):
     queryset = Team.objects.all()
-    serializer_class = TeamSerializer
+    serializer_class = TeamActvSerializer
 
 class DistanceListCreate(generics.ListCreateAPIView):
     queryset = Distance.objects.all()
