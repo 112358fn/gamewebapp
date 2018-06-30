@@ -7,6 +7,10 @@ class TeamListAPI(generics.ListAPIView):
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
 
+class TeamRetriveAPI(generics.RetrieveUpdateAPIView):
+    queryset = Team.objects.all()
+    serializer_class = TeamSerializer
+
 class DistanceListCreate(generics.ListCreateAPIView):
     queryset = Distance.objects.all()
     serializer_class = DistanceSerializer
