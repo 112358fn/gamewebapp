@@ -4,7 +4,7 @@ class TeamSerializer(serializers.ModelSerializer):
     distance = serializers.StringRelatedField(many=True)
     class Meta:
         model = Team
-        fields = ('id', 'name', 'responsible', 'distance')
+        fields = ('id', 'name', 'responsible', 'activated', 'distance')
 
 class DistanceSerializer(serializers.ModelSerializer):
     class Meta:
