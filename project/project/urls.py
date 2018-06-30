@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from leads import views
 
 urlpatterns = [
@@ -22,5 +22,5 @@ urlpatterns = [
     path('api/team/<int:pk>/', views.TeamRetriveAPI.as_view() ),
     path('api/distance/', views.DistanceListCreate.as_view() ),
     # path('', include('leads.urls')),
-    path('', include('frontend.urls')),
+    re_path('team/([0-9]+)', include('frontend.urls')),
 ]
