@@ -6,14 +6,17 @@ import Form from "./Form"
 
 const App = () => (
     <React.Fragment>
-        <DataProvider endpoint="api/lead/" 
-                render={data => <Table data={data} />} />
-        <DataProvider endpoint="api/distance/" 
-                render={data => <Table data={data} />} />
-        <Form endpoint="api/lead/" />
+        <DataProvider endpoint={"http://localhost:8000/api/team/"+window.location.href.split('/')[4]+'/'}
+        dataConsumer={data => {
+                if(data['activated']) {
+                    return <DataProvider endpoint="http://localhost:8000/api/team/" dataConsumer={data => <Table data={data} />} />
+                } else {
+                    return <Form data={data} endpoint={"http://localhost:8000/api/team/"+window.location.href.split('/')[4]+'/'}/>
+                }
+            }
+        }/>
     </React.Fragment>
 );
 
 const wrapper = document.getElementById("app");
-
 wrapper ? ReactDOM.render(<App />, wrapper) : null;

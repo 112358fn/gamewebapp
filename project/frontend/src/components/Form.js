@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 class Form extends Component {
   static propTypes = {
-    endpoint: PropTypes.string.isRequired
+    endpoint: PropTypes.string.isRequired,
+    data: PropTypes.object.isRequired
   };
 
   state = {
-    name: "",
-    email: "",
-    message: ""
+    name: this.props.data['name'],
+    responsible: this.props.data['responsible']
   };
 
   handleChange = e => {
@@ -18,18 +18,24 @@ class Form extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { name, email, message } = this.state;
-    const lead = { name, email, message };
+    const { name, responsible } = this.state;
+    const activated = true
+    const team = { name, responsible, activated };
     const conf = {
-      method: "post",
-      body: JSON.stringify(lead),
+      method: "put",
+      body: JSON.stringify(team),
       headers: new Headers({ "Content-Type": "application/json" })
     };
-    fetch(this.props.endpoint, conf).then(response => console.log(response));
+    fetch(this.props.endpoint, conf).then(response => {
+      console.log(response)
+      window.location.reload()
+      return
+    });
   };
 
   render() {
-    const { name, email, message } = this.state;
+    const { name, responsible } = this.state;
+    console.log(this.props.data)
     return (
       <div className="column">
         <form onSubmit={this.handleSubmit}>
@@ -47,34 +53,21 @@ class Form extends Component {
             </div>
           </div>
           <div className="field">
-            <label className="label">Email</label>
+            <label className="label">Responsible</label>
             <div className="control">
               <input
                 className="input"
-                type="email"
-                name="email"
-                onChange={this.handleChange}
-                value={email}
-                required
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Message</label>
-            <div className="control">
-              <textarea
-                className="textarea"
                 type="text"
-                name="message"
+                name="responsible"
                 onChange={this.handleChange}
-                value={message}
+                value={responsible}
                 required
               />
             </div>
           </div>
           <div className="control">
             <button type="submit" className="button is-info">
-              Send message
+              Start the game!
             </button>
           </div>
         </form>

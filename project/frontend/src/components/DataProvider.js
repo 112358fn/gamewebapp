@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class DataProvider extends Component {
   static propTypes = {
     endpoint: PropTypes.string.isRequired,
-    render: PropTypes.func.isRequired
+    dataConsumer: PropTypes.func.isRequired
   };
 
   state = {
@@ -26,7 +26,7 @@ class DataProvider extends Component {
 
   render() {
     const { data, loaded, placeholder } = this.state;
-    return loaded ? this.props.render(data) : <p>{placeholder}</p>;
+    return loaded ? this.props.dataConsumer(data) : <p>{placeholder}</p>;
   }
 }
 
