@@ -1,12 +1,19 @@
 from rest_framework import serializers
 from leads.models import Team, Distance
-class TeamSerializer(serializers.ModelSerializer):
-    distance = serializers.StringRelatedField(many=True)
+
+
+class TeamActvSerializer(serializers.ModelSerializer):
     class Meta:
         model = Team
-        fields = ('id', 'name', 'responsible', 'activated', 'distance')
+        fields = ('id', 'name', 'responsible', 'activated')
 
 class DistanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Distance
-        fields = ('id', 'meters', 'team')
+        fields = '__all__'
+
+class TeamSerializer(serializers.ModelSerializer):
+    distance = DistanceSerializer(many=True, read_only=True    )
+    class Meta:
+        model = Team
+        fields = '__all__'
