@@ -5,6 +5,7 @@ class Team(models.Model):
     name = models.CharField(max_length=100)
     responsible = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
+    activated = models.BooleanField(default=False)
 
 class Distance(models.Model):
     meters = models.IntegerField()
