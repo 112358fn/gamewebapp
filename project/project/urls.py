@@ -19,6 +19,7 @@ from leads import views
 
 urlpatterns = [
     path('api/team/', views.TeamListAPI.as_view() ),
+    path('api/team/<int:pk>/', views.TeamRetriveAPI.as_view() ),
     path('api/distance/', views.DistanceListCreate.as_view() ),
     # path('', include('leads.urls')),
     path('', include('frontend.urls')),
