@@ -19,9 +19,10 @@ const AppRouter = () => (
             <Route path="/" component={PlayersHomePage} exact={true} />
             <Route path="/activate/:id" component={ActivateTeamPage} />
             <Route path="/success/:id" component={SuccessPage} />
+            <Route path="/team" component={PlayersHomePage} exact={true} />
             <Route path="/team/:name/:id" component={TeamPage} />
             <Route path="/judgeofthesummerparty" component={JudgeHomePage} exact={true} />
-            <Route path="/judgeofthesummerparty/addpoints/:name/:id" component={AddPointsPage} exact={true} />
+            <Route path="/judgeofthesummerparty/:name/:id" component={AddPointsPage} exact={true} />
             <Route path="/help" component={HelpPage} />
             <Route component={NotFoundPage} />
         </Switch>

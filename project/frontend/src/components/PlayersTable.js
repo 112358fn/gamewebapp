@@ -3,31 +3,26 @@ import PropTypes from "prop-types";
 import {Redirect} from 'react-router-dom';
 
 class TeamRow extends Component {
-  
   state = {
     redirect: false
   }
-  bar_style = {
-    height: '24px',
-    width: this.props.team.distance[1].meters + '%',
-    backgroundColor: 'rgb(43,194,83)'
-  };
-
+  
   handleClick = e => {
-    console.log(e);
     this.setState({redirect: true});
   };
 
   render() {
-    console.log(this.props.team);
     if (this.state.redirect) {
       return <Redirect push to={'/team/'+this.props.team.name+'/'+this.props.team.id} />;
     }
+    const distances = this.props.team.distance
+    const results = distances.map( (distance) => distance.meters)
+    const top_result = Math.max(...results)
     return (
       <tr onClick={this.handleClick}>
       <td>{this.props.team.name}</td>
-      <td>{this.props.team.responsible}</td>
-      <td>{this.props.team.responsible}</td>
+      <td>{top_result}</td>
+      <td>Missing Badges</td>
       </tr>
     );
   };
@@ -39,11 +34,9 @@ const PlayersTable = ({ data }) =>
     <p>Nothing to show</p>
   ) : (
     <div className="column">
-
       <h2 className="subtitle">
-        Showing <strong>{data.length} teams</strong>
+        <strong>{data.length} teams playing</strong>
       </h2>
-
       <table className="table table-condensed">
         <thead>
           <tr>
@@ -56,9 +49,6 @@ const PlayersTable = ({ data }) =>
           {data.map( (team) => <TeamRow team={team} key={team.id}/>)}
         </tbody>
       </table>
-      
-
-    </div>
-      
+    </div>   
   );
 export default PlayersTable;

@@ -1,53 +1,55 @@
 import React, { Component } from "react";;
 import PropTypes from "prop-types";
-import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom';
 
-class Team extends Component {
-  // static propTypes = {
-  //   team: PropTypes.object.isRequired
-  // };
-  bar_style = {
-    height: '24px',
-    width: this.props.team.distance[1].meters + '%',
-    backgroundColor: 'rgb(43,194,83)'
-  };
+class TeamRow extends Component {
+  state = {
+    redirect: false
+  }
 
   handleClick = e => {
-    console.log('this is a judge table');
-
+    this.setState({redirect: true});
   };
 
   render() {
-    console.log(this.props.team);
+    if (this.state.redirect) {
+      return <Redirect push to={'/judgeofthesummerparty/'+this.props.team.name+'/'+this.props.team.id} />;
+    }
+    const distances = this.props.team.distance
+    const results = distances.map( (distance) => distance.meters)
+    const top_result = Math.max(...results)
     return (
-        <li>
-          <h3>{this.props.team.name}</h3>
-          <Link to={'/judgeofthesummerparty/addpoints/'+this.props.team.name+'/'+this.props.team.id}>
-          <div className="distance_bar">
-            <div className="distance" style={this.bar_style}></div>
-          </div>
-          </Link>
-      </li>
+      <tr onClick={this.handleClick}>
+      <td>{this.props.team.name}</td>
+      <td>{top_result}</td>
+      <td>Missing Badges</td>
+      </tr>
     );
   };
 };
 
 
-const Table = ({ data }) =>
+const JudgeTable = ({ data }) =>
   !data.length ? (
     <p>Nothing to show</p>
   ) : (
     <div className="column">
       <h2 className="subtitle">
-        Showing <strong>{data.length} teams</strong>
+        <strong>{data.length} teams playing</strong>
       </h2>
-      <ul>
-      {data.map( (team) => <Team team={team} key={team.id}/>)}
-      </ul>
+      <table className="table table-condensed">
+        <thead>
+          <tr>
+            <th>Team Name</th>
+            <th>Top Results</th>
+            <th>Badges</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map( (team) => <TeamRow team={team} key={team.id}/>)}
+        </tbody>
+      </table>
     </div>
-      
   );
-Table.propTypes = {
-  data: PropTypes.array.isRequired
-};
-export default Table;
+
+export default JudgeTable;
