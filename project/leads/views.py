@@ -8,7 +8,11 @@ class TeamListAPI(generics.ListAPIView):
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
 
-class TeamRetriveAPI(generics.RetrieveUpdateAPIView):
+class TeamRetriveAPI(generics.RetrieveAPIView):
+    queryset = Team.objects.all()
+    serializer_class = TeamSerializer
+
+class TeamRetriveUpdateAPI(generics.RetrieveUpdateAPIView):
     queryset = Team.objects.all()
     serializer_class = TeamActvSerializer
 
