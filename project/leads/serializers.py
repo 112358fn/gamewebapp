@@ -13,7 +13,7 @@ class DistanceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TeamSerializer(serializers.ModelSerializer):
-    distance = DistanceSerializer(many=True, read_only=True    )
+    distance = DistanceSerializer(many=True, read_only=True)
     class Meta:
         model = Team
         fields = '__all__'
