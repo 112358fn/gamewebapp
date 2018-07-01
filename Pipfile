@@ -10,6 +10,7 @@ djangorestframework = "*"
 [dev-packages]
 pylint = "*"
 coverage = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.6"
