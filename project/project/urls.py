@@ -18,9 +18,6 @@ from django.urls import path, include, re_path
 from leads import views
 
 urlpatterns = [
-    path('api/team/', views.TeamListAPI.as_view() ),
-    path('api/team/<int:pk>/', views.TeamRetriveAPI.as_view() ),
-    path('api/distance/', views.DistanceListCreate.as_view() ),
-    # path('', include('leads.urls')),
-    re_path('team/([0-9]+)', include('frontend.urls')),
+    path('', include('leads.urls')),
+    path('', include('frontend.urls')),
 ]
