@@ -1,13 +1,29 @@
+const path = require('path');
+
 module.exports = {
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: "babel-loader"
-          }
-        }
-      ]
-    }
+  entry: './project/frontend/src/index.js',
+  output: {
+    path: path.join(__dirname, 'project/frontend/static'),
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        loader: 'babel-loader',
+        test: /\.js$/,
+        exclude: /node_modules/
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'project/frontend/templates/frontend'),
+    historyApiFallback: true
+  }
   };
