@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import {withRouter, Redirect} from 'react-router-dom';
 
 class Form extends Component {
   static propTypes = {
@@ -27,18 +28,17 @@ class Form extends Component {
       headers: new Headers({ "Content-Type": "application/json" })
     };
     fetch(this.props.endpoint, conf).then(response => {
-      console.log(response)
-      window.location.reload()
+      this.props.history.push('/');
       return
     });
   };
 
   render() {
     const { name, responsible } = this.state;
-    console.log(this.props.data)
-    return (
+    console.log()
+    return this.props.data.activated ? <Redirect to="/"/> : (
       <div className="column">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
             <label className="label">Name</label>
             <div className="control">
@@ -76,4 +76,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default withRouter(Form);
