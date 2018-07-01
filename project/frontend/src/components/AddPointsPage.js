@@ -1,10 +1,12 @@
 import React from 'react';
+import AddPointsForm from './AddPointsForm'
 
 const AddPointsPage = (props) => {
     console.log(props)
     return (
         <div>
             Add points to the team: {props.match.params.name}
+            <AddPointsForm team_id={props.match.params.id} endpoint={"http://localhost:8000/api/distance/"}/>
         </div>
     )
 };

@@ -2,15 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {withRouter, Redirect} from 'react-router-dom';
 
-class Form extends Component {
-  static propTypes = {
-    endpoint: PropTypes.string.isRequired,
-    data: PropTypes.object.isRequired
-  };
-
+class AddPointsForm extends Component {
   state = {
-    name: this.props.data['name'],
-    responsible: this.props.data['responsible']
+    team: this.props.team_id,
+    meters: 0
   };
 
   handleChange = e => {
@@ -19,16 +14,15 @@ class Form extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { name, responsible } = this.state;
-    const activated = true
-    const team = { name, responsible, activated };
+    const { team, meters } = this.state;
+    const distance = { meters, team };
     const conf = {
-      method: "put",
-      body: JSON.stringify(team),
+      method: "post",
+      body: JSON.stringify(distance),
       headers: new Headers({ "Content-Type": "application/json" })
     };
     fetch(this.props.endpoint, conf).then(response => {
-      this.props.history.push('/');
+      this.props.history.push('/judgeofthesummerparty');
       return
     });
   };
@@ -36,38 +30,27 @@ class Form extends Component {
   render() {
     const { name, responsible } = this.state;
     console.log()
-    return this.props.data.activated ? <Redirect to="/"/> : (
+    return (
       <div className="column">
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
-            <label className="label">Name</label>
+            <label className="label">Meters</label>
             <div className="control">
               <input
                 className="input"
-                type="text"
-                name="name"
+                type="number"
+                min="1"
+                step="1"
+                name="meters"
                 onChange={this.handleChange}
                 value={name}
                 required
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">Responsible</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name="responsible"
-                onChange={this.handleChange}
-                value={responsible}
-                required
-              />
-            </div>
-          </div>
           <div className="control">
             <button type="submit" className="button is-info">
-              Start the game!
+              Save!
             </button>
           </div>
         </form>
@@ -76,4 +59,4 @@ class Form extends Component {
   }
 }
 
-export default withRouter(Form);
+export default withRouter(AddPointsForm);

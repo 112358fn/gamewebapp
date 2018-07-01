@@ -1,6 +1,6 @@
 import React from 'react';
 import DataProvider from './DataProvider'
-import Form from './Form'
+import ActivationForm from './ActivationForm'
 
 const ActivateTeamPage = (props) => {
     console.log(props)
@@ -10,7 +10,7 @@ const ActivateTeamPage = (props) => {
             <DataProvider 
             endpoint={"http://localhost:8000/api/team/"+props.match.params.id+'/'}
             dataConsumer={data =>
-                <Form data={data} endpoint={"http://localhost:8000/api/team/update/"+props.match.params.id+'/'}/>
+                <ActivationForm data={data} endpoint={"http://localhost:8000/api/team/update/"+props.match.params.id+'/'}/>
             }
             />
         </div>
