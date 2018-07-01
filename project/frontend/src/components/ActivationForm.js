@@ -9,6 +9,7 @@ class ActivationForm extends Component {
   };
 
   state = {
+    id: this.props.data['id'],
     name: this.props.data['name'],
     responsible: this.props.data['responsible']
   };
@@ -19,7 +20,7 @@ class ActivationForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { name, responsible } = this.state;
+    const { id, name, responsible } = this.state;
     const activated = true
     const team = { name, responsible, activated };
     const conf = {
@@ -28,14 +29,13 @@ class ActivationForm extends Component {
       headers: new Headers({ "Content-Type": "application/json" })
     };
     fetch(this.props.endpoint, conf).then(response => {
-      this.props.history.push('/');
+      this.props.history.push('/success/'+ id);
       return
     });
   };
 
   render() {
-    const { name, responsible } = this.state;
-    console.log()
+    const { id, name, responsible } = this.state;
     return this.props.data.activated ? <Redirect to="/"/> : (
       <div className="column">
         <form onSubmit={this.handleSubmit.bind(this)}>
@@ -67,7 +67,7 @@ class ActivationForm extends Component {
           </div>
           <div className="control">
             <button type="submit" className="button is-info">
-              Start the game!
+              Create team
             </button>
           </div>
         </form>

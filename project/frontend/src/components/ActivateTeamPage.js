@@ -6,7 +6,7 @@ const ActivateTeamPage = (props) => {
     console.log(props)
     return (
         <div>
-            This is from ActivateTeamPage {props.match.params.id} component
+            Assamble your heroes:
             <DataProvider 
             endpoint={"http://192.168.0.10:8000/api/team/"+props.match.params.id+'/'}
             dataConsumer={data =>

@@ -4,8 +4,7 @@ import PlayersTable from './PlayersTable'
 
 const PlayersHomePage = () => (
     <div>
-    
-        This is from PlayersHomePage component
+        <h1>Rankings</h1>
         <DataProvider endpoint="http://192.168.0.10:8000/api/team/" dataConsumer={data => <PlayersTable data={data} />} />
     </div>
 );

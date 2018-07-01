@@ -1,8 +1,12 @@
 import React, { Component } from "react";;
 import PropTypes from "prop-types";
+import {Redirect} from 'react-router-dom';
 
 class TeamRow extends Component {
   
+  state = {
+    redirect: false
+  }
   bar_style = {
     height: '24px',
     width: this.props.team.distance[1].meters + '%',
@@ -10,18 +14,21 @@ class TeamRow extends Component {
   };
 
   handleClick = e => {
-    console.log('this is a users table');
+    console.log(e);
+    this.setState({redirect: true});
   };
 
   render() {
     console.log(this.props.team);
+    if (this.state.redirect) {
+      return <Redirect push to={'/team/'+this.props.team.name+'/'+this.props.team.id} />;
+    }
     return (
-        <li>
-          <h3>{this.props.team.name}</h3>
-          <div className="distance_bar">
-            <div className="distance" style={this.bar_style} onClick={this.handleClick} team_id={this.props.team.id}></div>
-          </div>
-      </li>
+      <tr onClick={this.handleClick}>
+      <td>{this.props.team.name}</td>
+      <td>{this.props.team.responsible}</td>
+      <td>{this.props.team.responsible}</td>
+      </tr>
     );
   };
 };
@@ -32,12 +39,25 @@ const PlayersTable = ({ data }) =>
     <p>Nothing to show</p>
   ) : (
     <div className="column">
+
       <h2 className="subtitle">
         Showing <strong>{data.length} teams</strong>
       </h2>
-      <ul>
-      {data.map( (team) => <TeamRow team={team} key={team.id}/>)}
-      </ul>
+
+      <table className="table table-condensed">
+        <thead>
+          <tr>
+            <th>Team Name</th>
+            <th>Top Results</th>
+            <th>Badges</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map( (team) => <TeamRow team={team} key={team.id}/>)}
+        </tbody>
+      </table>
+      
+
     </div>
       
   );
