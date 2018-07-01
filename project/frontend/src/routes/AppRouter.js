@@ -7,7 +7,8 @@ import JudgeHomePage from '../components/JudgeHomePage'
 import AddPointsPage from '../components/AddPointsPage'
 import HelpPage from '../components/HelpPage'
 import NotFoundPage from '../components/NotFoundPage'
-
+import SuccessPage from '../components/SuccessPage'
+import TeamPage from '../components/TeamPage'
 
 
 const AppRouter = () => (
@@ -17,6 +18,8 @@ const AppRouter = () => (
         <Switch>
             <Route path="/" component={PlayersHomePage} exact={true} />
             <Route path="/activate/:id" component={ActivateTeamPage} />
+            <Route path="/success/:id" component={SuccessPage} />
+            <Route path="/team/:name/:id" component={TeamPage} />
             <Route path="/judgeofthesummerparty" component={JudgeHomePage} exact={true} />
             <Route path="/judgeofthesummerparty/addpoints/:name/:id" component={AddPointsPage} exact={true} />
             <Route path="/help" component={HelpPage} />
