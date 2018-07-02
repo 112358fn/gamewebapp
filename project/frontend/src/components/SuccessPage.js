@@ -25,7 +25,7 @@ const ResultName = (data) => {
 const SuccessPage = (props) => {
     return (
             <DataProvider 
-            endpoint={"http://174.138.11.98:8000/api/team/" + props.match.params.id +"/"}
+            endpoint={"http://174.138.11.98/api/team/" + props.match.params.id +"/"}
             dataConsumer={data => <ResultName data={data} />} />
     )
 }
