@@ -5,12 +5,11 @@ import TeamPage from './TeamPage'
 const AddPointsPage = (props) => {
     console.log(props)
     return (
-        <div>
+        <div className="container">
             <TeamPage {...props}/>
-            Add points to the team:
             <AddPointsForm 
                 team_id={props.match.params.id} 
-                endpoint={"http://192.168.0.10:8000/api/distance/"}/>
+                endpoint={"http://188.166.6.13:8000/api/distance/"}/>
 
         </div>
     )

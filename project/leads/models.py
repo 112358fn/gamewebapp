@@ -6,6 +6,8 @@ class Team(models.Model):
     responsible = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     activated = models.BooleanField(default=False)
+    badge_one = models.BooleanField(default=False)
+    badge_two = models.BooleanField(default=False)
 
 class Distance(models.Model):
     meters = models.IntegerField()

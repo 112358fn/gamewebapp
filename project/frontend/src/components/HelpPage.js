@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HelpPage = () => (
-    <div>
+    <div className='container'>
         This is from help component
     </div>
 );

@@ -5,12 +5,12 @@ import ActivationForm from './ActivationForm'
 const ActivateTeamPage = (props) => {
     console.log(props)
     return (
-        <div>
-            Assamble your heroes:
+        <div className='container'>
+            <h2>Create a team:</h2>
             <DataProvider 
-            endpoint={"http://192.168.0.10:8000/api/team/"+props.match.params.id+'/'}
+            endpoint={"http://188.166.6.13:8000/api/team/"+props.match.params.id+'/'}
             dataConsumer={data =>
-                <ActivationForm data={data} endpoint={"http://192.168.0.10:8000/api/team/update/"+props.match.params.id+'/'}/>
+                <ActivationForm data={data} endpoint={"http://188.166.6.13:8000/api/team/update/"+props.match.params.id+'/'}/>
             }
             />
         </div>

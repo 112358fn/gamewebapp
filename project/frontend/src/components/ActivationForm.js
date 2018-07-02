@@ -10,8 +10,8 @@ class ActivationForm extends Component {
 
   state = {
     id: this.props.data['id'],
-    name: this.props.data['name'],
-    responsible: this.props.data['responsible']
+    name: "",
+    responsible: ""
   };
 
   handleChange = e => {
@@ -37,39 +37,36 @@ class ActivationForm extends Component {
   render() {
     const { id, name, responsible } = this.state;
     return this.props.data.activated ? <Redirect to="/"/> : (
-      <div className="column">
+      <div className="container">
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <div className="field">
-            <label className="label">Name</label>
-            <div className="control">
+        <div className="form-group">
+              <label htmlFor="team_name">Team name:</label>
               <input
-                className="input"
+                className="form-control"
+                id="team_name"
                 type="text"
                 name="name"
                 onChange={this.handleChange}
                 value={name}
+                placeholder="E.g. Awesome team"
                 required
               />
-            </div>
           </div>
-          <div className="field">
-            <label className="label">Responsible</label>
-            <div className="control">
+          <div class="form-group">
+              <label htmlFor="team_name">Team leader:</label>
               <input
-                className="input"
+                className="form-control"
                 type="text"
                 name="responsible"
                 onChange={this.handleChange}
                 value={responsible}
+                placeholder="Team's leader's name"
                 required
               />
             </div>
-          </div>
-          <div className="control">
-            <button type="submit" className="button is-info">
+            <button type="submit" className="btn btn-success">
               Create team
             </button>
-          </div>
         </form>
       </div>
     );

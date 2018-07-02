@@ -1,6 +1,6 @@
 import React, { Component } from "react";;
 import PropTypes from "prop-types";
-import {Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom'
 
 class TeamRow extends Component {
   state = {
@@ -22,7 +22,10 @@ class TeamRow extends Component {
       <tr onClick={this.handleClick}>
       <td>{this.props.team.name}</td>
       <td>{top_result}</td>
-      <td>Missing Badges</td>
+      <td>
+        <span className="glyphicon glyphicon-certificate"/>
+        <span className="glyphicon glyphicon-certificate"/>
+      </td>
       </tr>
     );
   };

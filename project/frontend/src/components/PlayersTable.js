@@ -12,6 +12,7 @@ class TeamRow extends Component {
   };
 
   render() {
+    console.log(this.props.team)
     if (this.state.redirect) {
       return <Redirect push to={'/team/'+this.props.team.name+'/'+this.props.team.id} />;
     }
@@ -22,7 +23,10 @@ class TeamRow extends Component {
       <tr onClick={this.handleClick}>
       <td>{this.props.team.name}</td>
       <td>{top_result}</td>
-      <td>Missing Badges</td>
+      <td>
+        <span className="glyphicon glyphicon-certificate"/>
+        <span className="glyphicon glyphicon-certificate"/>
+        </td>
       </tr>
     );
   };

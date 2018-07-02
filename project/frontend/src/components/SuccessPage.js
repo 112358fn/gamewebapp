@@ -1,27 +1,32 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import DataProvider from './DataProvider'
+import DataProvider from './DataProvider';
 
 const ResultName = (data) => {
     return (
-        <div>
-        <h2>Your team has been register: {data.data.name}</h2>
-        <h3>The responsible is: {data.data.responsible}</h3>
+        <div className="container">
+            <h2 className="text-center">
+            <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <p>Welcome, team {data.data.name} !</p>
+                
+            </h2>
+            <p className="text-center">
+                Your team has been created. {data.data.responsible} is the one responsible for your team.
+            </p>
+            <Link to='/'>
+                <h2 className="text-center">
+                    <button type="button" className="btn btn-success btn-lg">Start game</button>
+                </h2>
+            </Link>
         </div>
     )
 }
 
 const SuccessPage = (props) => {
     return (
-        <div>
-        <h1>
-            Success
-        </h1>
-        <DataProvider 
-        endpoint={"http://192.168.0.10:8000/api/team/" + props.match.params.id +"/"}
-        dataConsumer={data => <ResultName data={data} />} />
-        <Link to='/'><h2>Start game</h2></Link>
-        </div>
+            <DataProvider 
+            endpoint={"http://188.166.6.13:8000/api/team/" + props.match.params.id +"/"}
+            dataConsumer={data => <ResultName data={data} />} />
     )
 }
 

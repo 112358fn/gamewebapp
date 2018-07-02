@@ -31,28 +31,25 @@ class AddPointsForm extends Component {
     const { name, responsible } = this.state;
     console.log()
     return (
-      <div className="column">
+      <div className="container">
+        <h2>Add points to the team:</h2>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <div className="field">
+          <div className="form-group">
             <label className="label">Meters</label>
-            <div className="control">
-              <input
-                className="input"
+            <input
+                className="form-control"
                 type="number"
-                min="1"
+                min="0"
                 step="1"
                 name="meters"
                 onChange={this.handleChange}
                 value={name}
                 required
-              />
-            </div>
+            />
           </div>
-          <div className="control">
-            <button type="submit" className="button is-info">
+            <button type="submit" className="btn btn-info">
               Save!
             </button>
-          </div>
         </form>
       </div>
     );

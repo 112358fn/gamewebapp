@@ -11,6 +11,7 @@ djangorestframework = "*"
 pylint = "*"
 coverage = "*"
 django-cors-headers = "*"
+mod-wsgi = "*"
 
 [requires]
 python_version = "3.6"
