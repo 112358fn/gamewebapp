@@ -49,7 +49,7 @@ const TeamPage = (props) => {
             </button>
             <h1>{props.match.params.name}</h1>
             <DataProvider 
-            endpoint={"http://188.166.6.13:8000/api/team/" + props.match.params.id +"/"}
+            endpoint={"http://174.138.11.98:8000/api/team/" + props.match.params.id +"/"}
             dataConsumer={data => <ResultsTable data={data} />} />
         </div>
     );

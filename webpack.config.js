@@ -9,9 +9,17 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: 'babel-loader',
         test: /\.js$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['env', 'react'],
+              plugins: ['transform-class-properties']
+            }
+          }
+        ],
       },
       {
         test: /\.s?css$/,
@@ -23,7 +31,7 @@ module.exports = {
       }]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'project/frontend/templates/frontend'),
+    contentBase: path.join(__dirname, 'project/frontend/src'),
     historyApiFallback: true
   }
   };

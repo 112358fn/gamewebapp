@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./project/frontend/src/App.js --output ./project/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./project/frontend/src/App.js --output ./project/frontend/static/frontend/main.js",
+    "dev": "webpack --mode development ./project/frontend/src/App.js --output ./project/frontend/static/frontend/bundle-dev.js",
+    "build": "webpack --mode production ./project/frontend/src/App.js --output ./project/frontend/static/frontend/bundle.js",
     "dev-server": "webpack-dev-server --mode development"
   },
   "keywords": [],

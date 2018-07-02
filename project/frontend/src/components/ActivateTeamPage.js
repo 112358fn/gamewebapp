@@ -8,9 +8,9 @@ const ActivateTeamPage = (props) => {
         <div className='container'>
             <h2>Create a team:</h2>
             <DataProvider 
-            endpoint={"http://188.166.6.13:8000/api/team/"+props.match.params.id+'/'}
+            endpoint={"http://174.138.11.98:8000/api/team/"+props.match.params.id+'/'}
             dataConsumer={data =>
-                <ActivationForm data={data} endpoint={"http://188.166.6.13:8000/api/team/update/"+props.match.params.id+'/'}/>
+                <ActivationForm data={data} endpoint={"http://174.138.11.98:8000/api/team/update/"+props.match.params.id+'/'}/>
             }
             />
         </div>

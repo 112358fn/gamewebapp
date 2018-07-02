@@ -9,7 +9,7 @@ const AddPointsPage = (props) => {
             <TeamPage {...props}/>
             <AddPointsForm 
                 team_id={props.match.params.id} 
-                endpoint={"http://188.166.6.13:8000/api/distance/"}/>
+                endpoint={"http://174.138.11.98:8000/api/distance/"}/>
 
         </div>
     )
