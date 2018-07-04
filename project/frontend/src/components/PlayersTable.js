@@ -40,7 +40,7 @@ class TeamRow extends Component {
 };
 
 
-export default class PlayersTable extends Component{
+class PlayersTable extends Component{
   render(){
     if (!this.props.data.length){
       return (<p>Nothing to show</p>)
@@ -76,7 +76,7 @@ export default class PlayersTable extends Component{
     }
   }
 }
-
+export default PlayersTable
 PlayersTable.defaultProps = {
   judge: false
 }

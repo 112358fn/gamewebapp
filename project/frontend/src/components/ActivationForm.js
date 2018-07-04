@@ -1,13 +1,7 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import {withRouter, Redirect} from 'react-router-dom';
 
 class ActivationForm extends Component {
-  static propTypes = {
-    endpoint: PropTypes.string.isRequired,
-    data: PropTypes.object.isRequired
-  };
-
   state = {
     id: this.props.data['id'],
     name: "",
@@ -21,6 +15,7 @@ class ActivationForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { id, name, responsible } = this.state;
+    console.log(this.state)
     const activated = true
     const team = { name, responsible, activated };
     const conf = {
@@ -28,13 +23,15 @@ class ActivationForm extends Component {
       body: JSON.stringify(team),
       headers: new Headers({ "Content-Type": "application/json" })
     };
-    fetch(this.props.endpoint, conf).then(response => {
-      this.props.history.push('/success/'+ id);
+    const endpoint = `http://174.138.11.98/api/team/update/${id}/`
+    fetch(endpoint, conf).then(response => {
+      this.props.history.push(`/success/${id}`);
       return
     });
   };
 
   render() {
+    console.log(this.props.data)
     const { id, name, responsible } = this.state;
     return this.props.data.activated ? <Redirect to="/"/> : (
       <div className="container">
@@ -52,7 +49,7 @@ class ActivationForm extends Component {
                 required
               />
           </div>
-          <div class="form-group">
+          <div className="form-group">
               <label htmlFor="team_name">Team leader:</label>
               <input
                 className="form-control"

@@ -1,33 +1,46 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import DataProvider from './DataProvider';
 
-const ResultName = (data) => {
-    return (
-        <div className="container">
-            <h2 className="text-center">
-            <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            <p>Welcome, team {data.data.name} !</p>
-                
-            </h2>
-            <p className="text-center">
-                Your team has been created. {data.data.responsible} is the one responsible for your team.
-            </p>
-            <Link to='/'>
-                <h2 className="text-center">
-                    <button type="button" className="btn btn-success btn-lg">Start game</button>
-                </h2>
-            </Link>
-        </div>
-    )
-}
+class SuccessPage extends Component {
+    state = {
+        data: [],
+        loaded: false,
+        placeholder: "Loading..."
+    };
 
-const SuccessPage = (props) => {
-    return (
-            <DataProvider 
-            endpoint={"http://174.138.11.98/api/team/" + props.match.params.id +"/"}
-            dataConsumer={data => <ResultName data={data} />} />
-    )
+    componentDidMount() {
+        const id = this.props.match.params.id
+        const endpoint = `http://174.138.11.98/api/team/${id}/`
+        fetch(endpoint)
+          .then(response => {
+            if (response.status !== 200) {
+              return this.setState({ placeholder: "Something went wrong" });
+            }
+            return response.json();
+          })
+          .then(data => this.setState({ data: data, loaded: true }));
+    }
+
+    render(){
+        return (
+            <div className="container">
+                <h2 className="text-center">
+                <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                <p>Welcome, team {this.state.data.name} !</p>
+                    
+                </h2>
+                <p className="text-center">
+                    Your team has been created. {this.state.data.responsible} is the one responsible for your team.
+                </p>
+                <Link to='/'>
+                    <h2 className="text-center">
+                        <button type="button" className="btn btn-success btn-lg">Start game</button>
+                    </h2>
+                </Link>
+            </div>
+        )
+    }
 }
 
 export default SuccessPage

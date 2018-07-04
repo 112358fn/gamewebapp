@@ -9,7 +9,6 @@ class Badges extends Component {
     }
     handleClick =  (e)=> {
         e.preventDefault();
-        console.log(this.props)
         let badge = {}
         if (this.props[e.target.id]) {
             badge = {[e.target.id]: false}
@@ -29,7 +28,6 @@ class Badges extends Component {
     };
 
     render(){
-        console.log(this.props)
         return (
         <div>
         <div className="row">
@@ -82,7 +80,6 @@ class ResultRow  extends Component {
     };
 
     render() {
-       // console.log(this.props.record.id)
         let time = new Date(this.props.record.created_at)
         const top_result = this.props.top_result
         let hours = time.getHours()
@@ -127,7 +124,6 @@ const ResultsTable = (props) => {
 
 const TeamPage = (props) => {
     const original_url = '/' + props.match.url.split('/')[1]
-    console.log(props.judge)
     return (
         <div className="container">
             <button type="button" className="btn btn-default">
