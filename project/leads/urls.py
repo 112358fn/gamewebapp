@@ -6,5 +6,6 @@ urlpatterns = [
     path('api/team/<int:pk>/', views.TeamRetriveAPI.as_view() ),
     path('api/team/update/<int:pk>/', views.TeamRetriveUpdateAPI.as_view() ),
     path('api/distance/', views.DistanceCreateAPI.as_view()) ,
+    path('api/distance/update/<int:pk>/', views.DistanceRetriveUpdateDestroyAPI.as_view()) ,
 ]
 

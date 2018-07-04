@@ -2,6 +2,19 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import DataProvider from './DataProvider'
 
+const Badges = (props) => (
+    <div>
+    <div className="row">
+        <div className="col-xs-6"><i className="fas fa-trophy text-muted fa-fw fa-10x"> </i></div>
+        <div className="col-xs-6"><i className="fas fa-flag text-success fa-fw fa-10x"> </i></div>
+    </div>
+    <div className="row">
+        <div className="col-xs-6"><i className="fas fa-money-bill-wave text-muted fa-fw fa-10x"> </i></div>
+        <div className="col-xs-6"><i className="fas fa-music text-muted fa-fw fa-10x"> </i></div>
+    </div>
+    </div>
+)
+
 const ResultRow = (props) => {
     let time = new Date(props.record.created_at)
     const top_result = props.top_result
@@ -23,6 +36,7 @@ const ResultsTable = (props) => {
     const results = distance.map( (result) => result.meters)
     const top_result = Math.max(...results)
     return (
+        <div className="container">
         <table className="table table-condensed">
         <thead>
           <tr>
@@ -35,6 +49,8 @@ const ResultsTable = (props) => {
             {distance.map( (record, index) => <ResultRow index={index} record={record} top_result={top_result} key={record.id}/>)}
         </tbody>
       </table>
+      <Badges/>
+      </div>
     );
 }
 

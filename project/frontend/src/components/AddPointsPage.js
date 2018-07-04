@@ -1,12 +1,12 @@
 import React from 'react';
 import AddPointsForm from './AddPointsForm'
-import TeamPage from './TeamPage'
+import TeamPageJudge from './TeamPageJudge'
 
 const AddPointsPage = (props) => {
     console.log(props)
     return (
         <div className="container">
-            <TeamPage {...props}/>
+            <TeamPageJudge {...props} />
             <AddPointsForm 
                 team_id={props.match.params.id} 
                 endpoint={"http://174.138.11.98/api/distance/"}/>

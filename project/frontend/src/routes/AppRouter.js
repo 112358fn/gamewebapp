@@ -9,6 +9,7 @@ import HelpPage from '../components/HelpPage'
 import NotFoundPage from '../components/NotFoundPage'
 import SuccessPage from '../components/SuccessPage'
 import TeamPage from '../components/TeamPage'
+import EditPointsPage from '../components/EditPointsPage'
 
 
 const AppRouter = () => (
@@ -22,6 +23,7 @@ const AppRouter = () => (
             <Route path="/team" component={PlayersHomePage} exact={true} />
             <Route path="/team/:name/:id" component={TeamPage} />
             <Route path="/judgeofthesummerparty" component={JudgeHomePage} exact={true} />
+            <Route path="/judgeofthesummerparty/edit/:name/:id" component={EditPointsPage} exact={true} />
             <Route path="/judgeofthesummerparty/:name/:id" component={AddPointsPage} exact={true} />
             <Route path="/help" component={HelpPage} />
             <Route component={NotFoundPage} />

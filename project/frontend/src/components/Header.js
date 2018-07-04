@@ -1,22 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-import { Navbar,Nav, NavItem } from 'react-bootstrap';
 
 const Header = () => (
-    <Navbar inverse collapseOnSelect>
-        <Navbar.Header>
-            <Navbar.Brand>
-                Partinator
-            </Navbar.Brand>
-            <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-        <Nav pullRight>
-            <NavItem><NavLink to="/" activeClassName="is-active" exact={true}>Home</NavLink></NavItem>
-            <NavItem><NavLink to="/help" activeClassName="is-active">Help</NavLink></NavItem>
-        </Nav>
-        </Navbar.Collapse>
-    </Navbar>
+    <div className="container-fluid" style={{verticalAlign:'baseline'}}>
+        <div class="row">
+            <div className="col-xs-8">
+                <h4>Brand</h4>
+            </div>
+            <div className="col-xs-2">
+                <NavLink to="/" activeClassName="is-active" exact={true}>Home</NavLink>
+            </div>
+            <div className="col-xs-2">
+                <NavLink to="/help" activeClassName="is-active" exact={true}>Help</NavLink>
+            </div>
+        </div>
+    </div>
 );
 
 export default Header

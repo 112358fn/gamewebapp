@@ -20,3 +20,7 @@ class DistanceCreateAPI(generics.CreateAPIView):
     queryset = Distance.objects.all()
     serializer_class = DistanceSerializer
 
+class DistanceRetriveUpdateDestroyAPI(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Distance.objects.all()
+    serializer_class = DistanceSerializer
+
