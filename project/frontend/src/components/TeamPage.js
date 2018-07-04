@@ -27,6 +27,7 @@ const ResultRow = (props) => {
             <td>{props.index + 1}</td>
             <td>{hours}:{minutes}</td>
             <td>{props.record.meters} m.</td>
+            {props.judge &&<td> x </td>}
         </tr>
     );
 }
@@ -43,10 +44,11 @@ const ResultsTable = (props) => {
             <th>#</th>
             <th>Time</th>
             <th>Result</th>
+            {props.judge && <th>Delete</th>}
           </tr>
         </thead>
         <tbody>
-            {distance.map( (record, index) => <ResultRow index={index} record={record} top_result={top_result} key={record.id}/>)}
+            {distance.map( (record, index) => <ResultRow index={index} record={record} top_result={top_result} key={record.id} judge={props.judge}/>)}
         </tbody>
       </table>
       <Badges/>
@@ -56,6 +58,7 @@ const ResultsTable = (props) => {
 
 const TeamPage = (props) => {
     const original_url = '/' + props.match.url.split('/')[1]
+    console.log(props.judge)
     return (
         <div className="container">
             <button type="button" className="btn btn-default">
@@ -66,9 +69,13 @@ const TeamPage = (props) => {
             <h1>{props.match.params.name}</h1>
             <DataProvider 
             endpoint={"http://174.138.11.98/api/team/" + props.match.params.id +"/"}
-            dataConsumer={data => <ResultsTable data={data} />} />
+            dataConsumer={data => <ResultsTable data={data} judge={props.judge}/>} />
         </div>
     );
 }
     
 export default TeamPage
+
+TeamPage.defaultProps = {
+    judge: false
+}

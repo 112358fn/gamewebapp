@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const Header = () => (
     <div className="container-fluid" style={{verticalAlign:'baseline'}}>
-        <div class="row">
+        <div className="row">
             <div className="col-xs-8">
                 <h4>Brand</h4>
             </div>

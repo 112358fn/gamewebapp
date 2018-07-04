@@ -12,7 +12,11 @@ class TeamRow extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect push to={'/team/'+this.props.team.name+'/'+this.props.team.id} />;
+      if(this.props.judge){
+        return <Redirect push to={'/judgeofthesummerparty/'+this.props.team.name+'/'+this.props.team.id} />;
+      } else {
+        return <Redirect push to={'/team/'+this.props.team.name+'/'+this.props.team.id} />;
+      }
     }
     let top_result = 0
     if (this.props.team.distance.length > 0) {
@@ -36,38 +40,43 @@ class TeamRow extends Component {
 };
 
 
-const PlayersTable = ({ data }) => {
-  if (!data.length){
-    return (<p>Nothing to show</p>)
-  } else {
-    const activatedTeams = data.filter(team => team.activated == true)
-    if (activatedTeams.lenght == 0) {
-      return(
-      <h3 className="subtitle">
-        Waiting for the teams to join ...
-      </h3>
-      )
+export default class PlayersTable extends Component{
+  render(){
+    if (!this.props.data.length){
+      return (<p>Nothing to show</p>)
     } else {
-      return (
-      <div className="container">
+      const activatedTeams = this.props.data.filter(team => team.activated == true)
+      if (activatedTeams.lenght == 0) {
+        return(
         <h3 className="subtitle">
-          {activatedTeams.length} team{(activatedTeams.length > 1) && 's'} playing
+          Waiting for the teams to join ...
         </h3>
-        <table className="table table-condensed">
-          <thead>
-            <tr>
-              <th>Team Name</th>
-              <th>Top Results</th>
-              <th>Badges</th>
-            </tr>
-          </thead>
-          <tbody>
-            {activatedTeams.map( (team) => <TeamRow team={team} key={team.id}/>)}
-          </tbody>
-        </table>
-      </div> 
-      ) 
+        )
+      } else {
+        return (
+        <div className="container">
+          <h3 className="subtitle">
+            {activatedTeams.length} team{(activatedTeams.length > 1) && 's'} playing
+          </h3>
+          <table className="table table-condensed">
+            <thead>
+              <tr>
+                <th>Team Name</th>
+                <th>Top Results</th>
+                <th>Badges</th>
+              </tr>
+            </thead>
+            <tbody>
+              {activatedTeams.map( (team) => <TeamRow team={team} key={team.id} judge={this.props.judge}/>)}
+            </tbody>
+          </table>
+        </div> 
+        ) 
+      }
     }
   }
 }
-export default PlayersTable;
+
+PlayersTable.defaultProps = {
+  judge: false
+}
