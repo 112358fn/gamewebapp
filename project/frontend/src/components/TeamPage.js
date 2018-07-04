@@ -1,36 +1,105 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from "react";
+import {Link, Router} from 'react-router-dom';
 import DataProvider from './DataProvider'
 
-const Badges = (props) => (
-    <div>
-    <div className="row">
-        <div className="col-xs-6"><i className="fas fa-trophy text-muted fa-fw fa-10x"> </i></div>
-        <div className="col-xs-6"><i className="fas fa-flag text-success fa-fw fa-10x"> </i></div>
-    </div>
-    <div className="row">
-        <div className="col-xs-6"><i className="fas fa-money-bill-wave text-muted fa-fw fa-10x"> </i></div>
-        <div className="col-xs-6"><i className="fas fa-music text-muted fa-fw fa-10x"> </i></div>
-    </div>
-    </div>
-)
+class Badges extends Component {
+    constructor() {
+        super()
+        this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick =  (e)=> {
+        e.preventDefault();
+        console.log(this.props)
+        let badge = {}
+        if (this.props[e.target.id]) {
+            badge = {[e.target.id]: false}
+        } else {
+            badge = {[e.target.id]: true}
+        }
+        const conf = {
+            method: "patch",
+            body: JSON.stringify(badge),
+            headers: new Headers({ "Content-Type": "application/json" })
+        };
+        const endpoint = `http://174.138.11.98/api/team/update/${this.props.id}/`
+        fetch(endpoint, conf).then(response => {
+            location.reload()
+            return
+        });
+    };
 
-const ResultRow = (props) => {
-    let time = new Date(props.record.created_at)
-    const top_result = props.top_result
-    let hours = time.getHours()
-    hours = hours > 10 ? hours : '0'+ hours
-    let minutes = time.getMinutes()
-    minutes = minutes > 10 ? minutes : '0'+ minutes
-    return (
-        <tr className={top_result==props.record.meters ? 'result success' : 'result'}>
-            <td>{props.index + 1}</td>
-            <td>{hours}:{minutes}</td>
-            <td>{props.record.meters} m.</td>
-            {props.judge &&<td> x </td>}
-        </tr>
-    );
+    render(){
+        console.log(this.props)
+        return (
+        <div>
+        <div className="row">
+            <div className="col-xs-6">
+                <div className={this.props.badge_one ? 'text-success' : 'text-muted'}>
+                    <i id="badge_one" className="fas fa-trophy fa-fw fa-10x" onClick={this.handleClick}> </i>
+                </div>
+            </div>
+            <div className="col-xs-6">
+                <div className={this.props.badge_two ? 'text-success' : 'text-muted'}>
+                    <i id="badge_two" className="fas fa-flag fa-fw fa-10x" onClick={this.handleClick}> </i>
+                </div>
+            </div>
+        </div>
+        <div className="row">
+            <div className="col-xs-6">
+                <div className={this.props.badge_three ? 'text-success' : 'text-muted'}>
+                    <i id="badge_three" className="fas fa-money-bill-wave fa-fw fa-10x" onClick={this.handleClick}> </i>
+                </div>
+            </div>
+            <div className="col-xs-6">
+                <div className={this.props.badge_four ? 'text-success' : 'text-muted'}>
+                    <i id="badge_four" className="fas fa-music fa-fw fa-10x" onClick={this.handleClick}> </i>
+                </div>
+            </div>
+        </div>
+        </div>
+        )
+    }
 }
+
+class ResultRow  extends Component {
+    constructor() {
+        super()
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        const end_point = `http://174.138.11.98/api/distance/update/${this.props.record.id}/`
+        const conf = {
+          method: "delete",
+          body: "",
+          headers: new Headers({ "Content-Type": "application/json" })
+        };
+        fetch(end_point, conf).then(response => {
+            location.reload();
+          return
+        });
+    };
+
+    render() {
+       // console.log(this.props.record.id)
+        let time = new Date(this.props.record.created_at)
+        const top_result = this.props.top_result
+        let hours = time.getHours()
+        hours = hours > 10 ? hours : '0'+ hours
+        let minutes = time.getMinutes()
+        minutes = minutes > 10 ? minutes : '0'+ minutes
+        return (
+            <tr className={top_result==this.props.record.meters ? 'result success' : 'result'}>
+                <td>{this.props.index + 1}</td>
+                <td>{hours}:{minutes}</td>
+                <td>{this.props.record.meters} m.</td>
+                {this.props.judge &&<td onClick={this.handleSubmit}> x </td>}
+            </tr>
+        );
+    }
+}
+
 
 const ResultsTable = (props) => {
     const distance = props.data.distance
@@ -51,7 +120,7 @@ const ResultsTable = (props) => {
             {distance.map( (record, index) => <ResultRow index={index} record={record} top_result={top_result} key={record.id} judge={props.judge}/>)}
         </tbody>
       </table>
-      <Badges/>
+      <Badges {...props.data}/>
       </div>
     );
 }
