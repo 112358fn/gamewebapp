@@ -1,6 +1,5 @@
 import React from 'react';
 import AddPointsForm from './AddPointsForm'
-import TeamPageJudge from './TeamPageJudge'
 import TeamPage from './TeamPage'
 
 const AddPointsPage = (props) => {
