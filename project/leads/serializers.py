@@ -5,7 +5,7 @@ from leads.models import Team, Distance
 class TeamActvSerializer(serializers.ModelSerializer):
     class Meta:
         model = Team
-        fields = ('id', 'name', 'responsible', 'activated')
+        fields = '__all__'
 
 class DistanceSerializer(serializers.ModelSerializer):
     class Meta:
