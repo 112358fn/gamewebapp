@@ -9,6 +9,7 @@ import HelpPage from '../components/HelpPage'
 import NotFoundPage from '../components/NotFoundPage'
 import SuccessPage from '../components/SuccessPage'
 import TeamPage from '../components/TeamPage'
+import Websocket from 'react-websocket';
 
 const LoadingPanel = (props) => (
     <div className='container'>
@@ -24,13 +25,21 @@ const LoadingPanel = (props) => (
 );
 
 class AppRouter extends Component {
-    state = {
-        data: [],
-        loaded: false,
-        placeholder: "Loading..."
-    };
+    constructor() {
+        super()
+        this.reFetch = this.reFetch.bind(this)
+        this.state = {
+            data: [],
+            loaded: false,
+            placeholder: "Loading..."
+        }
+    }
 
-    componentDidMount() {
+    componentWillMount() {
+        this.reFetch()
+    }
+
+    reFetch() {
         const endpoint = 'http://174.138.11.98/api/team/'
         fetch(endpoint)
           .then(response => {
@@ -39,8 +48,17 @@ class AppRouter extends Component {
             }
             return response.json();
           })
-          .then(data => this.setState({ data: data, loaded: true }));
+          .then(data => {
+                this.setState({ data: data, loaded: true })
+                }
+            );
     }
+
+    handleData(data) {
+        // let result = JSON.parse(data);
+        this.reFetch()
+        // this.setState({count: this.state.count + result.movement});
+      }
 
     render() {
         const { data, loaded, placeholder } = this.state;
@@ -50,6 +68,8 @@ class AppRouter extends Component {
             return (
                 <BrowserRouter>
                 <div>
+                    <Websocket url='ws://174.138.11.98:3030'
+                                onMessage={this.handleData.bind(this)}/>
                     <Header />
                     <Switch>
                         <Route path="/" render={(props) => <PlayersHomePage {...props} data={data} />} exact={true} />

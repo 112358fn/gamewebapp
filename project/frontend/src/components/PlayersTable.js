@@ -24,16 +24,25 @@ class TeamRow extends Component {
       const results = distances.map( (distance) => distance.meters)
       top_result = Math.max(...results)
     } 
+    console.log("players table: ",this.props.team.badge_one)
     return (
       <tr onClick={this.handleClick}>
       <td>{this.props.team.name}</td>
       <td>{top_result}</td>
       <td>
-        <i className="fas fa-trophy text-muted fa-fw fa-lg"> </i>
-        <i className="fas fa-flag text-success fa-fw fa-lg"> </i>
-        <i className="fas fa-money-bill-wave text-muted fa-fw fa-lg"> </i>
-        <i className="fas fa-music text-muted fa-fw fa-lg"> </i>
-        </td>
+        <div className={this.props.team.badge_one ? 'text-success' : 'text-muted'}>
+          <i className="fas fa-trophy fa-fw fa-lg"> </i>
+        </div>
+        <div className={this.props.team.badge_two ? 'text-success' : 'text-muted'}>
+        <i className="fas fa-flag fa-fw fa-lg"> </i>
+        </div>
+        <div className={this.props.team.badge_three ? 'text-success' : 'text-muted'}>
+        <i className="fas fa-money-bill-wave fa-fw fa-lg"> </i>
+        </div>
+        <div className={this.props.team.badge_four ? 'text-success' : 'text-muted'}>
+        <i className="fas fa-music fa-fw fa-lg"> </i>
+        </div>
+      </td>
       </tr>
     );
   };

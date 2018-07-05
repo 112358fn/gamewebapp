@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import DataProvider from './DataProvider'
 import ActivationForm from './ActivationForm'
 
 class ActivateTeamPage extends Component {
