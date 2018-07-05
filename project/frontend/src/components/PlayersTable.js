@@ -32,16 +32,16 @@ class TeamRow extends Component {
       <td>
         <ul className="list-inline">
           <li className={this.props.team.badge_one ? 'text-success' : 'text-muted'}>
-            <i className="fas fa-trophy fa-fw fa-lg"> </i>
+            <i className="fas fa-trophy fa-fw fa-sm"> </i>
           </li>
           <li className={this.props.team.badge_two ? 'text-success' : 'text-muted'}>
-          <i className="fas fa-flag fa-fw fa-lg"> </i>
+          <i className="fas fa-flag fa-fw fa-sm"> </i>
           </li>
           <li className={this.props.team.badge_three ? 'text-success' : 'text-muted'}>
-          <i className="fas fa-money-bill-wave fa-fw fa-lg"> </i>
+          <i className="fas fa-money-bill-wave fa-fw fa-sm"> </i>
           </li>
           <li className={this.props.team.badge_four ? 'text-success' : 'text-muted'}>
-          <i className="fas fa-music fa-fw fa-lg"> </i>
+          <i className="fas fa-music fa-fw fa-sm"> </i>
           </li>
         </ul>
       </td>

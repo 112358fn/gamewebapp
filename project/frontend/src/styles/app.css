@@ -19,3 +19,7 @@ h1, h2, h3 {
 .text-muted {
   color: #bbb;
 }
+
+.team-page-badges div[class*="col-"] {
+  padding: 2em 1em;
+}

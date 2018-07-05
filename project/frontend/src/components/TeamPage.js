@@ -55,27 +55,25 @@ class Badges extends Component {
         console.log(data)
         return (
         <div>
-        <div className="row">
-            <div className="col-xs-6">
+        <div className="row team-page-badges">
+            <div className="col-xs-6 col-sm-3 text-center">
                 <div className={data.badge_one ? 'text-success' : 'text-muted'}>
-                    <i id="badge_one" className="fas fa-trophy fa-fw fa-10x" onClick={this.props.judge && this.handleClick}> </i>
+                    <i id="badge_one" className="fas fa-trophy fa-fw fa-5x" onClick={this.props.judge && this.handleClick}> </i>
                 </div>
             </div>
-            <div className="col-xs-6">
+            <div className="col-xs-6 col-sm-3 text-center">
                 <div className={data.badge_two ? 'text-success' : 'text-muted'}>
-                    <i id="badge_two" className="fas fa-flag fa-fw fa-10x" onClick={this.props.judge && this.handleClick}> </i>
+                    <i id="badge_two" className="fas fa-flag fa-fw fa-5x" onClick={this.props.judge && this.handleClick}> </i>
                 </div>
             </div>
-        </div>
-        <div className="row">
-            <div className="col-xs-6">
+            <div className="col-xs-6 col-sm-3 text-center">
                 <div className={data.badge_three ? 'text-success' : 'text-muted'}>
-                    <i id="badge_three" className="fas fa-money-bill-wave fa-fw fa-10x" onClick={this.props.judge && this.handleClick}> </i>
+                    <i id="badge_three" className="fas fa-money-bill-wave fa-fw fa-5x" onClick={this.props.judge && this.handleClick}> </i>
                 </div>
             </div>
-            <div className="col-xs-6">
+            <div className="col-xs-6 col-sm-3 text-center">
                 <div className={data.badge_four ? 'text-success' : 'text-muted'}>
-                    <i id="badge_four" className="fas fa-music fa-fw fa-10x" onClick={this.props.judge && this.handleClick}> </i>
+                    <i id="badge_four" className="fas fa-music fa-fw fa-5x" onClick={this.props.judge && this.handleClick}> </i>
                 </div>
             </div>
         </div>
@@ -115,7 +113,7 @@ class ResultRow  extends Component {
             <tr className={top_result==this.props.record.meters ? 'result success' : 'result'}>
                 <td>{this.props.index + 1}</td>
                 <td>{hours}:{minutes}</td>
-                <td>{this.props.record.meters} m.</td>
+                <td><strong>{this.props.record.meters} m</strong></td>
                 {this.props.judge &&<td onClick={this.handleSubmit}> x </td>}
             </tr>
         );
@@ -128,21 +126,21 @@ const ResultsTable = (props) => {
     const results = distance.map( (result) => result.meters)
     const top_result = Math.max(...results)
     return (
-        <div className="container">
-        <table className="table table-condensed">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Time</th>
-            <th>Result</th>
-            {props.judge && <th>Delete</th>}
-          </tr>
-        </thead>
-        <tbody>
-            {distance.map( (record, index) => <ResultRow index={index} record={record} top_result={top_result} key={record.id} judge={props.judge}/>)}
-        </tbody>
-      </table>
-      <Badges {...props} />
+        <div>
+            <table className="table table-condensed">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Time</th>
+                <th>Result</th>
+                {props.judge && <th>Delete</th>}
+            </tr>
+            </thead>
+            <tbody>
+                {distance.map( (record, index) => <ResultRow index={index} record={record} top_result={top_result} key={record.id} judge={props.judge}/>)}
+            </tbody>
+        </table>
+        <Badges {...props} />
       </div>
     );
 }
@@ -154,6 +152,7 @@ class TeamPage extends Component{
         const data = this.props.data.filter(team => team.id == this.props.match.params.id)[0]
         return (
             <div className="container">
+            <br/>
                 <button type="button" className="btn btn-default">
                     <Link to={original_url}> 
                     <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back

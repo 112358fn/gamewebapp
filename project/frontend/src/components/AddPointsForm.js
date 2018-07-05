@@ -31,7 +31,7 @@ class AddPointsForm extends Component {
     console.log()
     return (
       <div className="container">
-        <h2>Add points to the team:</h2>
+        <h3>Add points to the team:</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="form-group">
             <label className="label">Meters</label>

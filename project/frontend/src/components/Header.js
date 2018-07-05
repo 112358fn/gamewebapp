@@ -5,7 +5,7 @@ const Header = () => (
     <div className="container" style={{verticalAlign:'baseline'}}>
         <div className="row app-header">
             <div className="col-xs-5 col-sm-4 col-md-3">
-                <img src="./images/partinator_logo.png" className="img-responsive app-header-logo" alt="Partinator" />
+                <img src="../images/partinator_logo.png" className="img-responsive app-header-logo" alt="Partinator" />
             </div>
             <div className="col-xs-7 col-sm-8 col-md-9">
                 <ul className="list-inline text-right app-header-menu">
