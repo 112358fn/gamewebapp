@@ -149,8 +149,9 @@ const ResultsTable = (props) => {
 
 class TeamPage extends Component{
     render() {
+        // console.log(this.props.match.params.id)
         const original_url = '/' + this.props.match.url.split('/')[1]
-        const data = this.props.data.filter(team => team.id == '1036')[0]
+        const data = this.props.data.filter(team => team.id == this.props.match.params.id)[0]
         return (
             <div className="container">
                 <button type="button" className="btn btn-default">
