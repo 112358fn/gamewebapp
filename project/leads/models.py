@@ -10,6 +10,7 @@ class Team(models.Model):
     badge_two = models.BooleanField(default=False)
     badge_three = models.BooleanField(default=False)
     badge_four = models.BooleanField(default=False)
+    badge_five = models.BooleanField(default=False)
 
 class Distance(models.Model):
     meters = models.IntegerField()
