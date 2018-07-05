@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import DataProvider from './DataProvider';
 
 class SuccessPage extends Component {
     state = {

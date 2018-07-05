@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import {Link, Router} from 'react-router-dom';
-import DataProvider from './DataProvider'
+import {Link} from 'react-router-dom';
 
 class Badges extends Component {
     constructor() {

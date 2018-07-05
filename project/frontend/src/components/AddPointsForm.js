@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import {withRouter, Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 class AddPointsForm extends Component {
   state = {
@@ -22,7 +21,7 @@ class AddPointsForm extends Component {
       headers: new Headers({ "Content-Type": "application/json" })
     };
     fetch(this.props.endpoint, conf).then(response => {
-      this.props.history.push('/judgeofthesummerparty');
+      location.reload();
       return
     });
   };
