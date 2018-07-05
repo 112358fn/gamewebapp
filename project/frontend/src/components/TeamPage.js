@@ -158,7 +158,7 @@ class TeamPage extends Component{
                     <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
                     </Link>
                 </button>
-                <h1>{data.name}</h1>
+                <h3>{data.name}</h3>
                 <ResultsTable data={data} judge={this.props.judge}/>
             </div>
         );

@@ -28,20 +28,22 @@ class TeamRow extends Component {
     return (
       <tr onClick={this.handleClick}>
       <td>{this.props.team.name}</td>
-      <td>{top_result}</td>
+      <td><strong>{top_result}</strong></td>
       <td>
-        <div className={this.props.team.badge_one ? 'text-success' : 'text-muted'}>
-          <i className="fas fa-trophy fa-fw fa-lg"> </i>
-        </div>
-        <div className={this.props.team.badge_two ? 'text-success' : 'text-muted'}>
-        <i className="fas fa-flag fa-fw fa-lg"> </i>
-        </div>
-        <div className={this.props.team.badge_three ? 'text-success' : 'text-muted'}>
-        <i className="fas fa-money-bill-wave fa-fw fa-lg"> </i>
-        </div>
-        <div className={this.props.team.badge_four ? 'text-success' : 'text-muted'}>
-        <i className="fas fa-music fa-fw fa-lg"> </i>
-        </div>
+        <ul className="list-inline">
+          <li className={this.props.team.badge_one ? 'text-success' : 'text-muted'}>
+            <i className="fas fa-trophy fa-fw fa-lg"> </i>
+          </li>
+          <li className={this.props.team.badge_two ? 'text-success' : 'text-muted'}>
+          <i className="fas fa-flag fa-fw fa-lg"> </i>
+          </li>
+          <li className={this.props.team.badge_three ? 'text-success' : 'text-muted'}>
+          <i className="fas fa-money-bill-wave fa-fw fa-lg"> </i>
+          </li>
+          <li className={this.props.team.badge_four ? 'text-success' : 'text-muted'}>
+          <i className="fas fa-music fa-fw fa-lg"> </i>
+          </li>
+        </ul>
       </td>
       </tr>
     );
@@ -57,17 +59,17 @@ class PlayersTable extends Component{
       const activatedTeams = this.props.data.filter(team => team.activated == true)
       if (activatedTeams.lenght == 0) {
         return(
-        <h3 className="subtitle">
+        <h6>
           Waiting for the teams to join ...
-        </h3>
+        </h6>
         )
       } else {
         return (
-        <div className="container">
-          <h3 className="subtitle">
+        <div>
+          <h6>
             {activatedTeams.length} team{(activatedTeams.length > 1) && 's'} playing
-          </h3>
-          <table className="table table-condensed">
+          </h6>
+          <table className="table table-striped">
             <thead>
               <tr>
                 <th>Team Name</th>

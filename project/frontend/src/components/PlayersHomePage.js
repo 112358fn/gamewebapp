@@ -4,7 +4,7 @@ import PlayersTable from './PlayersTable'
 const PlayersHomePage = (props) => {
     return (
         <div className="container">
-            <h1>Rankings</h1>
+            <h3>Rankings</h3>
             <PlayersTable data={props.data} />
         </div>
     )
