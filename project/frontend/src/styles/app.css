@@ -1,0 +1,12 @@
+.app-header {
+  padding: 1em 0;
+}
+
+.app-header-menu {
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.app-header-menu a {
+  padding: 0 .5em;
+}
