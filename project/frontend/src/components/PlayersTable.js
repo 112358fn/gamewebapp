@@ -13,9 +13,9 @@ class TeamRow extends Component {
   render() {
     if (this.state.redirect) {
       if(this.props.judge){
-        return <Redirect push to={'/judgeofthesummerparty/'+this.props.team.name+'/'+this.props.team.id} />;
+        return <Redirect push to={'/judgeofthesummerparty/'+this.props.team.id} />;
       } else {
-        return <Redirect push to={'/team/'+this.props.team.name+'/'+this.props.team.id} />;
+        return <Redirect push to={'/team/'+this.props.team.id} />;
       }
     }
     let top_result = 0

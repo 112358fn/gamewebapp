@@ -56,9 +56,9 @@ class AppRouter extends Component {
                         <Route path="/activate/:id" component={ActivateTeamPage} />
                         <Route path="/success/:id" component={SuccessPage} />
                         <Route path="/team" render={(props) => <PlayersHomePage {...props} data={data} />} exact={true} />
-                        <Route path="/team/:name/:id" render={(props) => <TeamPage {...props} data={data} />} />
+                        <Route path="/team/:id" render={(props) => <TeamPage {...props} data={data} />} />
                         <Route path="/judgeofthesummerparty" render={(props) => <JudgeHomePage {...props} data={data} />} exact={true} />
-                        <Route path="/judgeofthesummerparty/:name/:id" render={(props) => <AddPointsPage {...props} data={data} />} exact={true} />
+                        <Route path="/judgeofthesummerparty/:id" render={(props) => <AddPointsPage {...props} data={data} />} exact={true} />
                         <Route path="/help" component={HelpPage} />
                         <Route component={NotFoundPage} />
                     </Switch>

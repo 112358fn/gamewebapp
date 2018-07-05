@@ -6,11 +6,30 @@ class Badges extends Component {
     constructor() {
         super()
         this.handleClick = this.handleClick.bind(this)
+        this.refetchData = this.refetchData.bind(this)
+        this.state = {
+            data: [],
+            loaded: false,
+            placeholder: "Loading..."
+        }
     }
+    
+    refetchData() {
+        const endpoint = `http://174.138.11.98/api/team/${this.props.data.id}/`
+        fetch(endpoint)
+          .then(response => {
+            if (response.status !== 200) {
+              return this.setState({ placeholder: "Something went wrong" });
+            }
+            return response.json();
+          })
+          .then(data => this.setState({ data: data, loaded: true }))
+    }
+
     handleClick =  (e)=> {
         e.preventDefault();
         let badge = {}
-        if (this.props[e.target.id]) {
+        if (this.state.data[e.target.id]) {
             badge = {[e.target.id]: false}
         } else {
             badge = {[e.target.id]: true}
@@ -20,37 +39,44 @@ class Badges extends Component {
             body: JSON.stringify(badge),
             headers: new Headers({ "Content-Type": "application/json" })
         };
-        const endpoint = `http://174.138.11.98/api/team/update/${this.props.id}/`
+        const endpoint = `http://174.138.11.98/api/team/update/${this.state.data.id}/`
         fetch(endpoint, conf).then(response => {
-            location.reload()
+            this.refetchData()
             return
         });
     };
+    
+    componentDidMount() {
+        this.setState({ data: this.props.data})
+    }
 
     render(){
+        // const data = this.state.data
+        const data = this.state.data
+        console.log(data)
         return (
         <div>
         <div className="row">
             <div className="col-xs-6">
-                <div className={this.props.badge_one ? 'text-success' : 'text-muted'}>
-                    <i id="badge_one" className="fas fa-trophy fa-fw fa-10x" onClick={this.handleClick}> </i>
+                <div className={data.badge_one ? 'text-success' : 'text-muted'}>
+                    <i id="badge_one" className="fas fa-trophy fa-fw fa-10x" onClick={this.props.judge && this.handleClick}> </i>
                 </div>
             </div>
             <div className="col-xs-6">
-                <div className={this.props.badge_two ? 'text-success' : 'text-muted'}>
-                    <i id="badge_two" className="fas fa-flag fa-fw fa-10x" onClick={this.handleClick}> </i>
+                <div className={data.badge_two ? 'text-success' : 'text-muted'}>
+                    <i id="badge_two" className="fas fa-flag fa-fw fa-10x" onClick={this.props.judge && this.handleClick}> </i>
                 </div>
             </div>
         </div>
         <div className="row">
             <div className="col-xs-6">
-                <div className={this.props.badge_three ? 'text-success' : 'text-muted'}>
-                    <i id="badge_three" className="fas fa-money-bill-wave fa-fw fa-10x" onClick={this.handleClick}> </i>
+                <div className={data.badge_three ? 'text-success' : 'text-muted'}>
+                    <i id="badge_three" className="fas fa-money-bill-wave fa-fw fa-10x" onClick={this.props.judge && this.handleClick}> </i>
                 </div>
             </div>
             <div className="col-xs-6">
-                <div className={this.props.badge_four ? 'text-success' : 'text-muted'}>
-                    <i id="badge_four" className="fas fa-music fa-fw fa-10x" onClick={this.handleClick}> </i>
+                <div className={data.badge_four ? 'text-success' : 'text-muted'}>
+                    <i id="badge_four" className="fas fa-music fa-fw fa-10x" onClick={this.props.judge && this.handleClick}> </i>
                 </div>
             </div>
         </div>
@@ -117,26 +143,27 @@ const ResultsTable = (props) => {
             {distance.map( (record, index) => <ResultRow index={index} record={record} top_result={top_result} key={record.id} judge={props.judge}/>)}
         </tbody>
       </table>
-      <Badges {...props.data}/>
+      <Badges {...props} />
       </div>
     );
 }
 
-const TeamPage = (props) => {
-    const original_url = '/' + props.match.url.split('/')[1]
-    return (
-        <div className="container">
-            <button type="button" className="btn btn-default">
-                <Link to={original_url}> 
-                <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
-                </Link>
-            </button>
-            <h1>{props.match.params.name}</h1>
-            <DataProvider 
-            endpoint={"http://174.138.11.98/api/team/" + props.match.params.id +"/"}
-            dataConsumer={data => <ResultsTable data={data} judge={props.judge}/>} />
-        </div>
-    );
+class TeamPage extends Component{
+    render() {
+        const original_url = '/' + this.props.match.url.split('/')[1]
+        const data = this.props.data.filter(team => team.id == '1036')[0]
+        return (
+            <div className="container">
+                <button type="button" className="btn btn-default">
+                    <Link to={original_url}> 
+                    <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
+                    </Link>
+                </button>
+                <h1>{data.name}</h1>
+                <ResultsTable data={data} judge={this.props.judge}/>
+            </div>
+        );
+    }
 }
     
 export default TeamPage
