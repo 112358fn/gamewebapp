@@ -2,6 +2,8 @@ import React from 'react';
 
 const HelpPage = () => (
     <div className='container'>
+    <br/>
+    <div class="alert alert-warning"><strong>Heads up!</strong> This ain't rocket science</div>
     <h3>Task:</h3>
     <h4>Build a bottle-rocket!</h4>
     <ul>
@@ -13,13 +15,15 @@ const HelpPage = () => (
     </ul>
     <h3>Extra:</h3>
     <h4>Win some badges</h4>
-    <ul className="fa-ul">
-    <li><i className="fa-li fas fa-plane-arrival fa-fw fa-lg"></i>Perfect Landing: Egg in perfect conditions</li>
-    <li><i className="fa-li fas fa-money-bill-wave fa-fw fa-lg"></i>Excellent Bribery: Be creative</li>
-    <li><i className="fa-li fas fa-music fa-fw fa-lg"></i>Awesome Musical Skills: Dance or sing</li>
-    <li><i className="fa-li fas fa-flag fa-fw fa-lg"></i>Terrific Flag Design</li>
+    <ul className="list-unstyled">
+    <li><i className="fas fa-plane-arrival fa-fw fa-lg"></i> Perfect Landing: Egg in perfect conditions</li>
+    <li><i className="fas fa-money-bill-wave fa-fw fa-lg"></i> Excellent Bribery: Be creative</li>
+    <li><i className="fas fa-music fa-fw fa-lg"></i> Awesome Musical Skills: Dance or sing</li>
+    <li><i className="fas fa-flag fa-fw fa-lg"></i> Terrific Flag Design</li>
+    <li><i className="fas fa-trophy fa-fw fa-2x color-winner"></i>...and for the winner: <strong>Best in Show!</strong> <i className="fas fa-trophy fa-fw fa-2x color-winner"></i></li>
     </ul>
-    <i class="fas fa-trophy fa-3x fa-pull-left" aria-hidden="true"></i>...and for the winner: <strong>Best in Show!</strong>
+    <br/>
+    <div className="well well-sm text-center">Made with <i className="fas fa-heart fa-fw fa-sm"></i> from Göteborg</div>
     </div>
 );
 
