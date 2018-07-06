@@ -27,7 +27,7 @@ class TeamRow extends Component {
     console.log("players table: ",this.props.team.badge_one)
     return (
       <tr onClick={this.handleClick}>
-      <td>{this.props.team.name}</td>
+      <td>{this.props.team.name}<br/>{this.props.team.responsible}</td>
       <td><strong>{top_result}</strong></td>
       <td>
         <ul className="list-inline">

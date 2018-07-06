@@ -164,6 +164,7 @@ class TeamPage extends Component{
                     </Link>
                 </button>
                 <h3>{data.name}</h3>
+                <h2>{data.responsible}</h2>
                 <ResultsTable data={data} judge={this.props.judge}/>
             </div>
         );
