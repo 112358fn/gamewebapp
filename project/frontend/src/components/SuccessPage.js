@@ -24,18 +24,18 @@ class SuccessPage extends Component {
     render(){
         return (
             <div className="container">
-                <h2 className="text-center">
+                <h3 className="text-center">
                 <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
                 <p>Welcome, team {this.state.data.name} !</p>
                     
-                </h2>
+                </h3>
                 <p className="text-center">
                     Your team has been created. {this.state.data.responsible} is the one responsible for your team.
                 </p>
                 <Link to='/'>
-                    <h2 className="text-center">
+                    <h3 className="text-center">
                         <button type="button" className="btn btn-success btn-lg">Start game</button>
-                    </h2>
+                    </h3>
                 </Link>
             </div>
         )

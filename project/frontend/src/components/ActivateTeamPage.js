@@ -27,13 +27,13 @@ class ActivateTeamPage extends Component {
         if (!loaded) {
             return (
                 <div className='container'>
-                    <h2>Loading...</h2>
+                    <h3>Loading...</h3>
                 </div>
             )
         } else {
             return (
                 <div className='container'>
-                    <h2>Create a team:</h2>
+                    <h3>Create a team:</h3>
                     <ActivationForm data={data}/>
                 </div>
             )
