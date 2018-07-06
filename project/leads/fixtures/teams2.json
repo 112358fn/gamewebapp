@@ -1,82 +1,100 @@
 [
     {
         "model": "leads.team",
-        "pk": 1542,
+        "pk": 1153,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1927,
+        "pk": 1284,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1161,
+        "pk": 1931,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1036,
+        "pk": 1680,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1807,
+        "pk": 1170,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1043,
+        "pk": 1055,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1557,
+        "pk": 1313,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
-        }
-    },
-    {
-        "model": "leads.team",
-        "pk": 1955,
-        "fields": {
-            "name": "A team",
-            "responsible": "John Doe",
-            "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
@@ -86,217 +104,319 @@
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1445,
+        "pk": 1534,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1329,
+        "pk": 1959,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1722,
+        "pk": 1704,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1857,
+        "pk": 1835,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1218,
+        "pk": 1069,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1867,
+        "pk": 1843,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1620,
+        "pk": 1076,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1366,
+        "pk": 1334,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1498,
+        "pk": 1086,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1376,
+        "pk": 1855,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1761,
+        "pk": 1983,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1123,
+        "pk": 1475,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1638,
+        "pk": 1095,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1259,
+        "pk": 1992,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1263,
+        "pk": 1354,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1524,
+        "pk": 1226,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1141,
+        "pk": 1610,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1403,
+        "pk": 1616,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1532,
+        "pk": 1893,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1405,
+        "pk": 1004,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     },
     {
         "model": "leads.team",
-        "pk": 1663,
+        "pk": 1008,
         "fields": {
             "name": "A team",
             "responsible": "John Doe",
             "created_at": "2018-07-3 13:37:00",
-            "activated": false
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
+        }
+    },
+    {
+        "model": "leads.team",
+        "pk": 1662,
+        "fields": {
+            "name": "A team",
+            "responsible": "John Doe",
+            "created_at": "2018-07-3 13:37:00",
+            "activated": false,
+            "badge_one": false,
+            "badge_two": false,
+            "badge_three": false,
+            "badge_four": false
         }
     }
 ]

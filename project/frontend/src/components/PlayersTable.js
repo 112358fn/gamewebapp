@@ -43,6 +43,9 @@ class TeamRow extends Component {
           <li className={this.props.team.badge_four ? 'text-success' : 'text-muted'}>
           <i className="fas fa-music fa-fw fa-sm"> </i>
           </li>
+          <li className={this.props.team.badge_five ? 'text-success' : 'text-muted'}>
+          <i className="fas fa-plane-arrival fa-fw fa-sm"> </i>
+          </li>
         </ul>
       </td>
       </tr>

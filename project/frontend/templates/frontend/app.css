@@ -1,0 +1,25 @@
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+.app-header {
+  padding: 1em 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.app-header-menu {
+  font-weight: bold;
+  font-size: 115%;
+}
+
+.app-header-menu a {
+  padding: 0 .5em;
+}
+
+.text-muted {
+  color: #bbb;
+}
+
+.team-page-badges div[class*="col-"] {
+  padding: 2em 1em;
+}

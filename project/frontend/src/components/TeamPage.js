@@ -76,6 +76,11 @@ class Badges extends Component {
                     <i id="badge_four" className="fas fa-music fa-fw fa-5x" onClick={this.props.judge && this.handleClick}> </i>
                 </div>
             </div>
+            <div className="col-xs-6 col-sm-3 text-center">
+                <div className={data.badge_five ? 'text-success' : 'text-muted'}>
+                    <i id="badge_five" className="fas fa-plane-arrival fa-fw fa-5x" onClick={this.props.judge && this.handleClick}> </i>
+                </div>
+            </div>
         </div>
         </div>
         )
